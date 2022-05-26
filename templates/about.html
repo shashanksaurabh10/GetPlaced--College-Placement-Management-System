@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>College Placement Managment system</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-dark">
+        <a class="navbar-brand text-white" width="100" height="50" href="#">
+            <img width="70" height="50" src="{{ url_for('static',filename='logo1.jpg') }}"
+                class="d-inline-block align-top" alt="" loading="lazy">
+            College Placement Managment System
+            <footer class="blockquote-footer">By Us For You <cite title="Source Title"></cite></footer>
+        </a>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">HOME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SERVICES <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">ABOUT US</a>
+                </li>
+                
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button type="button" class="btn btn-dark">Search</button>
+            </form>
+        </div>
+    </nav>
+    
+
+    <!-- START THE FEATURETTES -->
+    <div class="container">
+     <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">About The University <span class="text-muted">It’ll blow your mind.</span></h2>
+            <p class="lead">Amity University Mumbai with its future-ready, sprawling campus, a world - class learning infrastructure and over a kilometer long frontage on the Mumbai-Pune Expressway offers a 360 degree career transformational set-up. With its state of the art infrastructure, the campus facilitates all-round growth of students. It also houses world class sports facilities for soccer, cricket, lawn tennis and badminton. There are several well-appointed residential options for students as well as faculty within its premises. Amity University Campus has been designed by a globally renowned US architect who has previously designed Boston and California State University.
+
+</p>
+          </div>
+          <div class="col-md-5">
+            <img width="500" height="500" src="{{ url_for('static',filename='about1.webp') }}">
+          </div>
+        </div>
+    </div>
+     <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+        <p class="lead">The city campus is located in the Art Guild House, Kurla West, Mumbai. This campus serves as an academic hub for prospective students & parents seeking information on Amity University Mumbai as well as providing platform for industry interaction, guest lectures & other academic activities.The university main campus is also well-connected by university-operated as well as public transport options from major nearby locations and just 10 km from Panvel station. It has been certified ‘Green’ and has a state–of–the–art ‘access-control’ systems to ensure utmost safety. 30 minutes’ drive from the proposed Navi Mumbai International Airport.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img width="500" height="500" src="{{ url_for('static',filename='about2.webp') }}">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+        <p class="lead">Rated amongst the top ranked innovation-driven private universities and technical institutes in the country, Thapar Institute of Engineering & Technology has been accredited with an 'A+' grade by the National Assessment and Accreditation Council (NAAC). We constantly evolve our teaching methods, and provide quality education to our students, whom we see as unique individuals with different interests and aspirations. We keep the quality of our curriculum, faculty and infrastructure unparalleled, and believe in encouraging thousands of young minds to excel in India and abroad. Our alumni have stood out in varied fields such as business and industry, administrative and regulatory services, research and education, and social and human rights organisations.</p>
+      </div>
+      <div class="col-md-5">
+        <img width="500" height="500" src="{{ url_for('static',filename='about2.jpg') }}">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

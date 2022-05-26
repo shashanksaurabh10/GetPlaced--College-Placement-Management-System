@@ -1,0 +1,17 @@
+{
+	"params":
+	{
+		"local_server":"true",
+		"local_uri": "mysql://root:@localhost/placement",
+		"prod_uri" : "mysql://root:@localhost/placement",
+		"gmail-user" : "shashanksingh29022020@gmail.com",
+		"gmail-password" : "singh29022020",
+		"usn" : "1AY18IS113",
+		"login_password" : "1003",
+		"admin_username" : "abc123",
+		"admin_password" : "12345",
+		"prin_username" : "ait123",
+		"prin_password" : "98765",
+		"upload_location" : "C:\\Users\\HP\\OneDrive\\Documents\\flask\\static"
+	}
+}

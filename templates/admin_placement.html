@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+    a:hover{
+  color: #fff;
+   transform-origin: center bottom;
+  transform: rotateX(-90deg) translateY(100%);
+  background:transparent;
+  text-decoration: none;
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+      .site-header{
+        background-color: rgb(0 0 0 / 85%)
+      }
+      .sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    }
+  .py-1 {
+    padding-bottom: .25rem!important;
+    padding-top: .25rem!important;
+    }
+    .py-2 {
+      color: #fff
+    }
+    .jumbotron
+    {
+      background-image: url("{{ url_for('static',filename='25.jpeg') }}");
+    }
+    </style>
+
+    <title>Welecome To Placment Database</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-dark">
+        <a class="navbar-brand text-white" width="100" height="50" href="#">
+            <img width="70" height="50" src="{{ url_for('static',filename='logo1.jpg') }}"
+                class="d-inline-block align-top" alt="" loading="lazy">
+            PLACEMENT HISTORY
+            <footer class="blockquote-footer">By Us For You <cite title="Source Title"></cite></footer>
+        </a>
+    </nav>
+    <nav class="site-header sticky-top py-1">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2" href="#" aria-label="Product">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
+    </a>
+    <a class="py-2 d-none d-md-inline-block" href="/admincompanydetails">Company Details</a>
+    <a class="py-2 d-none d-md-inline-block" href="#"></a>
+    <a class="py-2 d-none d-md-inline-block" href="/admindatabase">Student Database</a>
+    <a class="py-2 d-none d-md-inline-block" href="#"></a>
+    <a class="py-2 d-none d-md-inline-block" href="#">Placement History </a>
+    <a class="py-2 d-none d-md-inline-block" href="#"></a>
+    <a class="py-2 d-none d-md-inline-block" href="/query">Students Queries</a>
+    <a href="/adminlogout"><button type="button" class="btn btn-dark" action="">Logout</button></a>
+  </div>
+</nav>
+    
+
+    <main role="main" class="container my-4">
+  <div class="jumbotron">
+    <h1 style="background-color: #fff">College Placment History</h1>
+    <p class="lead" style="background-color: #fff">Here is the list of our talented students that had been placed colleges to various companies across the globe</p>
+    <a class="btn btn-lg btn-primary" href="/placementedit/0" role="button">Add New Placement Record »</a>
+  </div>
+</main>
+<div class="container table-hover">
+      <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col"> Name</th>
+          <th scope="col">Branch</th>
+          <th scope="col">Placed At</th>
+          <th scope="col">Year of Placment</th>
+          <th scope="col">Package</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in placement %}
+        <tr>
+          <td>{{row.stu_id}}</td>
+          <td>{{row.name}}</td>
+          <td>{{row.branch}}</td>
+          <td>{{row.company}}</td>
+          <td>{{row.yearofplacement}}</td>
+          <td>{{row.package}}</td>
+          <td><a href="/placementedit/{{row.stu_id}}"><button type="button" class="btn btn-warning">Edit</button></a></td>
+          <td><a href="/placementdelete/{{row.stu_id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h3><span class="badge bg-dark text-white">Average Campus Placement Package - Rs. {{avg}} per annum</span></h3>
+  </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

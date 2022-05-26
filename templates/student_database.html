@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+    a:hover{
+  color: #fff;
+   transform-origin: center bottom;
+  transform: rotateX(-90deg) translateY(100%);
+  background:transparent;
+  text-decoration: none;
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+      .site-header{
+        background-color: rgb(0 0 0 / 85%)
+      }
+      .sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    }
+  .py-1 {
+    padding-bottom: .25rem!important;
+    padding-top: .25rem!important;
+    }
+    .py-2 {
+      color: #fff
+    }
+    .jumbotron
+    {
+      background-image: url("{{ url_for('static',filename='24.jpeg') }}");
+    }
+    </style>
+
+    <title>Welecome To Placment Database</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-dark">
+        <a class="navbar-brand text-white" width="100" height="50" href="#">
+            <img width="70" height="50" src="{{ url_for('static',filename='logo1.jpg') }}"
+                class="d-inline-block align-top" alt="" loading="lazy">
+            STUDENT DATABASE
+            <footer class="blockquote-footer">By Us For You <cite title="Source Title"></cite></footer>
+        </a>
+    </nav>
+    <nav class="site-header sticky-top py-1">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2" href="#" aria-label="Product">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
+    </a>
+    <a class="py-2 d-none d-md-inline-block" href="/companydetails">Company Details</a>
+    <a class="py-2 d-none d-md-inline-block" href="#"></a>
+    <a class="py-2 d-none d-md-inline-block" href="">Student Database</a>
+    <a class="py-2 d-none d-md-inline-block" href="#"></a>
+    <a class="py-2 d-none d-md-inline-block" href="/placementhistory">Placement History </a>
+    <a class="py-2 d-none d-md-inline-block" href="#"></a>
+    <a class="py-2 d-none d-md-inline-block" href="/contactadmin">Contact Admin</a>
+    <a href="/logout"><button type="button" class="btn btn-dark" action="">Logout</button></a>
+  </div>
+</nav>
+    
+
+ <main role="main" class="container my-4">
+  <div class="jumbotron">
+    <h1 style="font-style: italic;">HELLO </h1>
+    <p class="lead" style="background-color: #fff"><<< WELCOME TO COLLEGE PLACEMENT DATABASE>>></p>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <span class="badge badge-pill badge-warning">Upload Your Resume Here</span>
+      <input type="file" name="file1">
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+    
+  </div>
+</main>
+<div class="container mx-2 table-hover">
+      <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">USN</th>
+          <th scope="col">Branch</th>
+          <th scope="col">Semester</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">DOB</th>
+          <th scope="col">Avg. SGPA</th>
+          <th scope="col">Internship Experience</th>
+          <th scope="col">Specialization</th>
+          <th scope="col">Preferred Company</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+
+      {% for row in post %}
+      <tbody>
+        <tr>
+          <td>{{row.student_id}}</td>
+          <td>{{row.name}}</td>
+          <td>{{row.usn}}</td>
+          <td>{{row.branch}}</td>
+          <td>{{row.semester}}</td>
+          <td>{{row.email}}</td>
+          <td>{{row.phoneno}}</td>
+          <td>{{row.dob}}</td>
+          <td>{{row.avg_sgpa}}</td>
+          <td>{{row.internship}}</td>
+          <td>{{row.specialization}}</td>
+          <td>{{row.pref_company}}</td>
+          <td><a href="/edit/{{row.student_id}}"><button type="button" class="btn btn-warning">Edit</button></a></td>
+          <td><a href="/delete/{{row.student_id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+      {% endfor %}
+            <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+   <form action="/registration" method="POST">
+    <div class="form-group">
+      <label for="inputEmail4">NAME</label>
+      <input type="text" class="form-control" id="inputEmail4" name="name">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword4">USN</label>
+      <input type="text" class="form-control" id="inputPassword4" name="usn">
+    </div>
+    <div class="form-group">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" name="email">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword4">Mobile Number</label>
+      <input type="text" class="form-control" id="inputPassword4" name="phoneno">
+    </div>
+    <div class="form-group">
+      <label for="inputEmail4">SEMESTER</label>
+      <input type="text" class="form-control" id="inputEmail4" name="sem">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword4">BRANCH</label>
+      <input type="text" class="form-control" id="inputPassword4" name="branch">
+    </div>
+    <div class="form-group">
+      <label for="inputCity">Average of SGPA of all Semesters</label>
+      <input type="text" class="form-control" id="inputCity" name="avgsgpa">
+    </div>
+    <div class="form-group">
+      <label for="inputState">Field of specialization</label>
+      <select id="inputState" class="form-control" name="specialization">
+        <option selected>Choose...</option>
+        <option>Machine Learning</option>
+        <option>UI/UX Design</option>
+        <option>Data Science</option>
+        <option>Artifical intelligence</option>
+        <option>Cloud Computing</option>
+        <option>Unix Programing</option>
+        <option>Database Analyst</option>
+        <option>Cyber Security</option>
+        <option>Fullstack web Development</option>
+        <option>Mobile app development</option>
+        <option>Computer Networking</option>
+        <option>VR and AR Development</option>
+
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="inputZip">Date Of Birth</label>
+      <input type="text" class="form-control" id="inputZip" placeholder="YYYY-MM-DD" name="dob">
+    </div>
+    <div class="form-group">
+      <label for="inputState">Internship Experience</label>
+      <select id="inputState" class="form-control" name="internship">
+        <option selected>Choose...</option>
+        <option>Yes</option>
+        <option>No</option>
+         </select>
+    </div>
+    <div class="form-group">
+      <label for="inputState">Preferred Company to be Placed At..</label>
+      <select id="inputState" class="form-control" name="prefcompany">
+        <option selected>Choose...</option>
+        <option>Amazon</option>
+        <option>Deloitte</option>
+        <option>Infosys</option>
+        <option>Cognizant</option>
+        <option>TCS</option>
+        <option>HCL</option>
+        <option>Google</option>
+        <option>Wipro</option>
+        <option>Tech Mahindra</option>
+        <option>IBM</option>
+        <option>Microsoft</option>
+        <option>Flipkart</option>
+        <option>BYJU</option>
+        <option>Mphasis</option>
+        <option>HP Inc</option>
+        <option>Acer Inc</option>
+        <option>Edureka</option>
+
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Set The Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password0">
+    </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
